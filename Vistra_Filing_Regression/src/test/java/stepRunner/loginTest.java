@@ -1,12 +1,14 @@
 package stepRunner;
 
 import cucumber.api.java.en.And;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.java.ro.Si;
+import utils.HelperMethods;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -14,6 +16,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class loginTest {
 
     WebDriver driver;
+    HelperMethods hm;
+    
     @Given("^Open Browser and Go to portal$")
     public void OpenBrowser(){
        System.setProperty("webdriver.chrome.driver", "E:\\jars\\chromedriver.exe");
@@ -40,8 +44,22 @@ public class loginTest {
 
     @Then("^user should be navigated to portal landing screen$")
     public void CheckNavigation()
-    {
-        System.out.println("User is navigated to the screen");
+    { 	hm = new HelperMethods();
+    	hm.waitForPageLoad(driver);
+    	
+    	try {
+        	WebElement tfaTextBox = driver.findElement(By.xpath("//span[text()='Passcode']/following::input"));
+
+    		if(tfaTextBox.isDisplayed()) {
+        		System.out.println("Login Successful, user navigated to Two Factor Authentication Page");
+        	}
+    	}catch(NoSuchElementException e) {
+    		System.out.println("Unable to find element. Login might be not occured successfully ");
+    	
+    	}
+    	
+    	
+    	
     }
     
     @And("^Application should be closed$")
