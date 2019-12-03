@@ -20,23 +20,24 @@ public class loginTest {
 
 	@Given("^Open Browser and Go to portal$")
 	public void OpenBrowser() {
+
 		System.setProperty("webdriver.chrome.driver", "E:\\jars\\chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("https://uat.myformations.vistra.com/");
 		driver.manage().window().maximize();
 	}
 
-	@When("^User submits valid username and password$")
-	public void enter_the_Username_and_Password() {
+	@When("^User submits valid \"(.*)\" and \"(.*)\"$")
+	public void enter_the_Username_and_Password(String uname, String pass) {
 		WebElement loginField = driver
 				.findElement(By.xpath("//input[@id='_com_liferay_login_web_portlet_LoginPortlet_login']"));
 		loginField.clear();
-		loginField.sendKeys("aman.patwal@rsk-bsl.com");
+		loginField.sendKeys(uname);
 
 		WebElement passwordField = driver
 				.findElement(By.xpath("//input[@id='_com_liferay_login_web_portlet_LoginPortlet_password']"));
 		passwordField.clear();
-		passwordField.sendKeys("Vistra123");
+		passwordField.sendKeys(pass);
 		// System.out.println("This step enter the Username and Password on the login
 		// page.");
 
