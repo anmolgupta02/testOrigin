@@ -5,6 +5,7 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import utils.DriverClass;
 import utils.HelperMethods;
 
 import org.openqa.selenium.By;
@@ -13,36 +14,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class loginTest {
+import businessLogics.LoginBL;
+
+public class loginTest extends DriverClass {
 
 	WebDriver driver;
 	HelperMethods hm;
+	LoginBL loginBL;
+	
 
 	@Given("^Open Browser and Go to portal$")
 	public void OpenBrowser() {
 
-		System.setProperty("webdriver.chrome.driver", "E:\\jars\\chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.get("https://uat.myformations.vistra.com/");
-		driver.manage().window().maximize();
+		driver = startApplication(driver, "chrome", "https://myformations.vistra.com/");
+				
 	}
 
 	@When("^User submits valid \"(.*)\" and \"(.*)\"$")
 	public void enter_the_Username_and_Password(String uname, String pass) {
-		WebElement loginField = driver
-				.findElement(By.xpath("//input[@id='_com_liferay_login_web_portlet_LoginPortlet_login']"));
-		loginField.clear();
-		loginField.sendKeys(uname);
-
-		WebElement passwordField = driver
-				.findElement(By.xpath("//input[@id='_com_liferay_login_web_portlet_LoginPortlet_password']"));
-		passwordField.clear();
-		passwordField.sendKeys(pass);
-		// System.out.println("This step enter the Username and Password on the login
-		// page.");
-
-		WebElement SignInButton = driver.findElement(By.xpath("//span[text()='Sign in']"));
-		SignInButton.click();
+		loginBL.ValidLogin(uname, pass);
 	}
 
 	@Then("^user should be navigated to portal landing screen$")

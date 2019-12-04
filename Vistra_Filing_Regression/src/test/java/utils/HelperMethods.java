@@ -3,6 +3,7 @@ package utils;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -20,5 +21,20 @@ public class HelperMethods {
 	            Assert.fail("Page load timeout");
 	        }
 	    }
+	   
+	   public void clickOnElement(WebElement element) {
+		   element.click();
+	   }
+	   
+	   public void writeText(WebElement element, String text) {
+		   element.clear();
+		   element.sendKeys(text);
+	   }
+	   
+	   
+	   
+	   
+	   
+	   
 
 }
