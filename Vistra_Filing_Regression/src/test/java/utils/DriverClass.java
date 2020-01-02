@@ -5,18 +5,30 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import gherkin.lexer.Tr;
 
 public class DriverClass {
 
 	public static WebDriver ldriver;
 	
+	public static DesiredCapabilities dcs = new DesiredCapabilities();
+	
+	@SuppressWarnings("deprecation")
 	public static WebDriver startApplication(WebDriver driver,String BrowserName, String URL) {
 		
 
 		if(BrowserName.equalsIgnoreCase("Chrome")) {
 			
+			
+			dcs= DesiredCapabilities.chrome();
+			
+			dcs.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+			
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\DriverUpdated\\chromedriver.exe");
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(dcs);
 			
 		}
 		

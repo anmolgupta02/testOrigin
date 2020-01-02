@@ -26,7 +26,7 @@ public class loginTest extends DriverClass {
 	@Given("^Open Browser and Go to portal$")
 	public void OpenBrowser() {
 
-		driver = startApplication(driver, "chrome", "http://ppd.myformations.vistra.com/");
+		driver = startApplication(driver, "chrome", "http://ppd.myformations.vistra.com");
 				
 	}
 
