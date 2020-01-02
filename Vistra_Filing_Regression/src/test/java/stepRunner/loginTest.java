@@ -26,12 +26,13 @@ public class loginTest extends DriverClass {
 	@Given("^Open Browser and Go to portal$")
 	public void OpenBrowser() {
 
-		driver = startApplication(driver, "chrome", "https://myformations.vistra.com/");
+		driver = startApplication(driver, "chrome", "http://ppd.myformations.vistra.com/");
 				
 	}
 
 	@When("^User submits valid \"(.*)\" and \"(.*)\"$")
 	public void enter_the_Username_and_Password(String uname, String pass) {
+		loginBL=new LoginBL();
 		loginBL.ValidLogin(uname, pass);
 	}
 
