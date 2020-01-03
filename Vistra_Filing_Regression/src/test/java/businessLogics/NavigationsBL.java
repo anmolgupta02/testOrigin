@@ -1,44 +1,59 @@
 package businessLogics;
 
-import org.openqa.selenium.WebElement;
-
 import pages.NavigationPL;
 import utils.DriverClass;
 import utils.HelperMethods;
 
-public class NavigationsBL extends DriverClass{
-	
+public class NavigationsBL extends DriverClass {
+
 	HelperMethods hm = new HelperMethods();
-	WebElement placeholder = null;
-	NavigationPL npl;
-	
-	public void NavigateToSheftList() {
-		hm.clickOnElement(placeholder);	
+
+	NavigationPL npl = new NavigationPL();
+
+	public void NavigateToSheftList1() {
+		hm.clickOnElement(npl.getShelfListLink());
 	}
-	
+
 	public void NavigateToSpInList() {
-		hm.clickOnElement(placeholder);
+		hm.clickOnElement(npl.getSPIlink());
 	}
-	
+
 	public void NavigateToALF() {
-		hm.clickOnElement(placeholder);
+		hm.clickOnElement(npl.getALFlink());
 	}
 
 	public void NavigateToSTI() {
-		hm.clickOnElement(placeholder);
+		hm.clickOnElement(npl.getSTIlink());
 	}
-	
-	
-	public void NavigateToShelfList() {
-		hm.clickOnElement(placeholder);
+
+	public void NavigateToShelfList2() {
+		hm.clickOnElement(npl.getShelfListSLink());
 	}
-	
+
 	public void NavigateToSINC() {
-		hm.clickOnElement(placeholder);
+		hm.clickOnElement(npl.getSINClink());
 	}
-	
+
 	public void NavigateToTS() {
-		hm.clickOnElement(placeholder);
+		hm.clickOnElement(npl.getTsLink());
 	}
 	
+	public void NavigateToMyCompList() {
+		hm.clickOnElement(npl.getMCLlink());
+	}
+	
+	public void NavigationCaller() {
+		NavigationsBL nbl = new NavigationsBL();
+		nbl.NavigateToSheftList1();
+		nbl.NavigateToSpInList();
+		nbl.NavigateToALF();
+		nbl.NavigateToSTI();
+		nbl.NavigateToShelfList2();
+		nbl.NavigateToSINC();
+		nbl.NavigateToTS();
+		nbl.NavigateToMyCompList();
+	}
+	
+	
+
 }
