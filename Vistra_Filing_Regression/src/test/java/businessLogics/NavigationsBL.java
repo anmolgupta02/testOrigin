@@ -37,11 +37,11 @@ public class NavigationsBL extends DriverClass {
 	public void NavigateToTS() {
 		hm.clickOnElement(npl.getTsLink());
 	}
-	
+
 	public void NavigateToMyCompList() {
 		hm.clickOnElement(npl.getMCLlink());
 	}
-	
+
 	public void NavigationCaller() {
 		NavigationsBL nbl = new NavigationsBL();
 		nbl.NavigateToSheftList1();
@@ -53,7 +53,119 @@ public class NavigationsBL extends DriverClass {
 		nbl.NavigateToTS();
 		nbl.NavigateToMyCompList();
 	}
-	
-	
 
+	public boolean AuthenticateShelfListNav() {
+
+		boolean flag = false;
+		NavigationsBL nbl = new NavigationsBL();
+		nbl.NavigateToSheftList1();
+		if (ldriver.getCurrentUrl().equalsIgnoreCase("Insert text here")) {
+			flag = true;
+		}
+		return flag;
+	}
+	
+	
+	public boolean AuthenticateSpInListNav() {
+
+		boolean flag = false;
+		NavigationsBL nbl = new NavigationsBL();
+		nbl.NavigateToSpInList();
+		if (ldriver.getCurrentUrl().equalsIgnoreCase("Insert text here")) {
+			flag = true;
+		}
+		return flag;
+	}
+	
+	public boolean AuthenticateALFNav() {
+
+		boolean flag = false;
+		NavigationsBL nbl = new NavigationsBL();
+		nbl.NavigateToALF();
+		if (ldriver.getCurrentUrl().equalsIgnoreCase("Insert text here")) {
+			flag = true;
+		}
+		return flag;
+	}
+	
+	public boolean AuthenticateSTINav() {
+
+		boolean flag = false;
+		NavigationsBL nbl = new NavigationsBL();
+		nbl.NavigateToSTI();
+		if (ldriver.getCurrentUrl().equalsIgnoreCase("Insert text here")) {
+			flag = true;
+		}
+		return flag;
+	}
+	
+	public boolean AuthenticateSL2Nav() {
+
+				
+		boolean flag = false;
+		NavigationsBL nbl = new NavigationsBL();
+		nbl.NavigateToShelfList2();
+		if (ldriver.getCurrentUrl().equalsIgnoreCase("Insert text here")) {
+			flag = true;
+		}
+		return flag;
+	}
+	
+	
+	public boolean AuthenticateSINCNav() {
+
+		boolean flag = false;
+		NavigationsBL nbl = new NavigationsBL();
+		nbl.NavigateToSINC();
+		if (ldriver.getCurrentUrl().equalsIgnoreCase("Insert text here")) {
+			flag = true;
+		}
+		return flag;
+	}
+	
+	public boolean AuthenticateTSNav() {
+
+		boolean flag = false;
+		NavigationsBL nbl = new NavigationsBL();
+		nbl.NavigateToTS();
+		if (ldriver.getCurrentUrl().equalsIgnoreCase("Insert text here")) {
+			flag = true;
+		}
+		return flag;
+	}
+	
+	public boolean AuthenticateMYCLNav() {
+
+		boolean flag = false;
+		NavigationsBL nbl = new NavigationsBL();
+		nbl.NavigateToMyCompList();
+		if (ldriver.getCurrentUrl().equalsIgnoreCase("Insert text here")) {
+			flag = true;
+		}
+		return flag;
+	}
+	
+	public boolean Authenticator() {
+	
+		NavigationsBL nbl = new NavigationsBL();
+		boolean flag = true;
+		boolean authNavShelfList, authSpInList, authALF, authSTI, authShelfList2, authSinc, authTS, authMyComp;
+		
+		authNavShelfList = nbl.AuthenticateShelfListNav();
+		authSpInList = nbl.AuthenticateSpInListNav();
+		authALF = nbl.AuthenticateALFNav();
+		authSTI = nbl.AuthenticateSTINav();
+		authShelfList2 = nbl.AuthenticateSL2Nav();
+		authSinc = nbl.AuthenticateSINCNav();
+		authTS = nbl.AuthenticateTSNav();
+		authMyComp = nbl.AuthenticateMYCLNav();
+		
+		if(authNavShelfList && authSpInList && authALF && authSTI && authShelfList2 && authSinc && authTS && authMyComp) {
+			flag = true;
+		}
+		
+		return flag;
+	}
+	
+	
 }
