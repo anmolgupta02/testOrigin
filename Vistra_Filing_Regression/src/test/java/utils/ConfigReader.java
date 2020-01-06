@@ -20,9 +20,55 @@ public class ConfigReader {
 
 	}
 
-	public String getNav() {
-
-		return prop.getProperty("");
+	public String getUsername() {
+		return prop.getProperty("username");
 	}
 
+	public String getPassword() {
+		return prop.getProperty("password");
+	}
+	
+	
+	
+	public String getURL() {
+		return prop.getProperty("url");
+	}
+
+	public String getBrowser() {
+		return prop.getProperty("browser");
+	}
+	
+	
+	
+	public String getLinkToSelfList1() {
+		return prop.getProperty("linktoSelfList1");
+	}
+	
+	public String getLinkToMyCompList() {
+		return prop.getProperty("linktoMyCompanyList");
+	}
+	
+	public String getLinkToTS() {
+		return prop.getProperty("linktoTS");
+	}
+	
+	public String getLinkToSTI() {
+		return prop.getProperty("linktoSTI");
+	}
+	
+	public String getLinkToSelfList2() {
+		return prop.getProperty("linktoSelfList2");
+	}
+	
+	public String getLinkToALF() {
+		return prop.getProperty("linktoALF");
+	}
+	
+	public String getLinkToSINC() {
+		return prop.getProperty("linktoSINC");
+	}
+	
+	public String getLinkToSpINList() {
+		return prop.getProperty("linktoSpInList");
+	}
 }
