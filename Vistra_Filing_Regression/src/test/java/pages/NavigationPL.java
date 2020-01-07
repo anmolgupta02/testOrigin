@@ -8,37 +8,37 @@ import utils.DriverClass;
 public class NavigationPL extends DriverClass{
 	
 
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//li[@id='layout_24']//a[contains(text(),'Shelf List')]")
 	private WebElement shelfListLink;
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//a[contains(text(),'Special Incorporation list')]")
 	private WebElement SPIlink;
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//a[contains(text(),'Annual License Fee')]")
 	private WebElement ALFlink;
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//a[contains(text(),'Sales and Technical Invoice')]")
 	private WebElement STIlink;
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//li[@id='layout_14']//a[contains(text(),'Shelf List')]")
 	private WebElement shelfListSLink;
 	
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//li[@id='layout_14']//a[contains(text(),'Shelf List')]")
 	private WebElement SINClink;
 	
+	@FindBy(xpath = "//a[contains(text(),'Technical Services')]")
+	private WebElement TsLink;
+	
+	@FindBy(xpath = "//a[contains(text(),'My Company List')]")
+	private WebElement MCLlink;
 	
 	//Getter methods for Calling WebElements
+
 	public WebElement getMCLlink() {
 		return MCLlink;
 	}
 
-	@FindBy(xpath = "")
-	private WebElement TsLink;
 	
-	@FindBy(xpath = "")
-	private WebElement MCLlink;
-	
-
 	public WebElement getShelfListLink() {
 		return shelfListLink;
 	}

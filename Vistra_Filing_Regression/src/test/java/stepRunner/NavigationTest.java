@@ -1,6 +1,6 @@
 package stepRunner;
 
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriver; 
 import businessLogics.NavigationsBL;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -30,37 +30,36 @@ public class NavigationTest extends DriverClass{
 			System.out.println("Caught a null pointer");
 		}finally {
 			Thread.sleep(5000);
-			nbl.loginSimple("test1@liferay.com", "test");
+			nbl.loginSimple(cr.getUsername(),cr.getPassword());
 			}
 	}
 	
 	@When("^User clicks on Important links$")
 	public void ClickonLinks() {
 	System.out.println("Clicks on Link");
+	
+		nbl = new NavigationsBL();
+		nbl.NavigationCaller();
 	}
-//		nbl = new NavigationsBL();
-//		nbl.NavigationCaller();
-//	}
 	
 	
 	@Then("^System must navigate to important links\\.$")
 	public void VerifyNavigation() throws Exception {
 
 		System.out.println("Verfied");
-		//		nbl = new NavigationsBL();
-//		boolean res = nbl.Authenticator();
-//		if(res) {
-//			System.out.println("Navigation to all pages went successfully");
-//		}else {
-//			System.out.println("Either some pages could not be visited or some error occured");
-//		}
+		nbl = new NavigationsBL();
+		boolean res = nbl.Authenticator();
+		if(res) {
+			System.out.println("Navigation to all pages went successfully");
+		}else {
+			System.out.println("Either some pages could not be visited or some error occured");
+		}
 	}
 
-	@Then("^The browser should be closed$")
+	@And("^The browser should be closed$")
 	public void the_browser_should_be_closed() throws Throwable {
-	   driver.quit();
+		System.out.println("Closing Browser Now");
+		driver.quit();
 	}
-	
-	
-	
+
 }
