@@ -71,4 +71,8 @@ public class ConfigReader {
 	public String getLinkToSpINList() {
 		return prop.getProperty("linktoSpInList");
 	}
+
+	public String getPasscode() {
+		return prop.getProperty("Passcode");
+	}
 }

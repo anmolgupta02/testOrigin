@@ -1,5 +1,7 @@
 package businessLogics;
 
+import java.io.IOException;
+
 import org.openqa.selenium.support.PageFactory;
 
 import pages.NavigationPL;
@@ -17,9 +19,9 @@ public class NavigationsBL extends DriverClass {
 	LoginBL loginBL = new LoginBL();
 	HelperMethods hm = new HelperMethods();
 	
-	public void loginSimple(String uname, String pass) {
+	public void loginSimple(String uname, String pass) throws IOException, InterruptedException{
 		System.out.println("Inside login Method Received data " +uname +pass);
-		loginBL.ValidLogin(uname, pass);
+		loginBL.loginWith2FA(uname, pass);
 	}
 	
 	ConfigReader reader;

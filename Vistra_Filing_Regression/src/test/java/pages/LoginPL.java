@@ -18,6 +18,8 @@ public class LoginPL {
 	@FindBy(xpath = "//span[text()='Passcode']/following::input")
 	private WebElement twoFATextBox;
 
+	@FindBy(xpath = "//span[text()='Submit' or text()='\u63d0\u4ea4']")
+	private WebElement twoFASignIn;
 		
 	public WebElement getLoginField() {
 		return loginField;
@@ -33,6 +35,10 @@ public class LoginPL {
 
 	public WebElement getTwoFATextBox() {
 		return twoFATextBox;
+	}
+	
+	public WebElement getTwoFASignIn() {
+		return twoFASignIn;
 	}
 
 }
