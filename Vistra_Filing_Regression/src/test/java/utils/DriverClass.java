@@ -14,11 +14,12 @@ public class DriverClass {
 
 	public static WebDriver ldriver;
 	
-	public static DesiredCapabilities dcs = new DesiredCapabilities();
+	public static DesiredCapabilities dcs;
 	
 	@SuppressWarnings("deprecation")
 	public static WebDriver startApplication(WebDriver driver,String BrowserName, String URL) {
 		
+		dcs = new DesiredCapabilities();
 
 		if(BrowserName.equalsIgnoreCase("Chrome")) {
 			
@@ -47,6 +48,8 @@ public class DriverClass {
 		ldriver = driver;
 		
 		driver.get(URL);
+		
+		System.out.println("Initiated and Returning Driver");
 		return driver;	
 	}
 	

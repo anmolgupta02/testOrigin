@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Login {
+public class LoginPL {
 	
 	
 	@FindBy(xpath="//input[@id='_com_liferay_login_web_portlet_LoginPortlet_login']")

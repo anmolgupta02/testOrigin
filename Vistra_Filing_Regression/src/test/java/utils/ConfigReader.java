@@ -11,7 +11,7 @@ public class ConfigReader {
 	Properties prop;
 
 	public ConfigReader() throws FileNotFoundException, IOException {
-		String FilePath = System.getProperty("user.dir") + "/Congif/config.properties";
+		String FilePath = System.getProperty("user.dir") + "/Config/config.properties";
 		File file = new File(FilePath);
 		FileInputStream fis = new FileInputStream(file);
 

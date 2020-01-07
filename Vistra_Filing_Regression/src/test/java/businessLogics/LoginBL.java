@@ -2,14 +2,15 @@ package businessLogics;
 
 import org.openqa.selenium.support.PageFactory;
 
-import pages.Login;
+import pages.LoginPL;
 import utils.DriverClass;
 import utils.HelperMethods;
 
 public class LoginBL extends DriverClass{
-	
-	Login lp = PageFactory.initElements(ldriver, Login.class);
-	
+	LoginPL lp;
+	public LoginBL() {
+		 lp = PageFactory.initElements(ldriver, LoginPL.class);
+	}
 	HelperMethods hm = new HelperMethods(); 
 	
 	public void ValidLogin(String Username, String Password) {
@@ -19,8 +20,6 @@ public class LoginBL extends DriverClass{
 		hm.clickOnElement(lp.getSingInButton());
 	
 	}
-	
-	
 	
 
 }

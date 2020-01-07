@@ -1,16 +1,26 @@
 package businessLogics;
 
+import org.openqa.selenium.support.PageFactory;
+
 import pages.NavigationPL;
 import utils.ConfigReader;
 import utils.DriverClass;
 import utils.HelperMethods;
 
 public class NavigationsBL extends DriverClass {
-
-	HelperMethods hm = new HelperMethods();
-
-	NavigationPL npl = new NavigationPL();
 	
+	NavigationPL npl;
+	public NavigationsBL() {
+		npl = PageFactory.initElements(ldriver, NavigationPL.class);
+	}
+	
+	LoginBL loginBL = new LoginBL();
+	HelperMethods hm = new HelperMethods();
+	
+	public void loginSimple(String uname, String pass) {
+		System.out.println("Inside login Method Received data " +uname +pass);
+		loginBL.ValidLogin(uname, pass);
+	}
 	
 	ConfigReader reader;
 

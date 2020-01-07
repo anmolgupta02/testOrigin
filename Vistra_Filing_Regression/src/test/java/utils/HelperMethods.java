@@ -27,8 +27,7 @@ public class HelperMethods {
 	   }
 	   
 	   public void writeText(WebElement element, String text) {
-		   element.clear();
-		   element.sendKeys(text);
+		    element.sendKeys(text);
 	   }
 	   
 	   
