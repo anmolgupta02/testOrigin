@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import gherkin.lexer.Tr;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class DriverClass {
 
@@ -28,7 +29,8 @@ public class DriverClass {
 			
 			dcs.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
 			
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\DriverUpdated\\chromedriver.exe");
+			//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"\\DriverUpdated\\chromedriver.exe");
+			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver(dcs);
 			
 		}

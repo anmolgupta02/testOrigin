@@ -1,6 +1,6 @@
 package stepRunner;
 
-import cucumber.api.java.en.And;
+import cucumber.api.java.en.And; 
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -12,16 +12,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 import businessLogics.LoginBL;
+import businessLogics.NavigationsBL;
 
 public class loginTest extends DriverClass {
 
 	WebDriver driver;
 	HelperMethods hm;
 	LoginBL loginBL;
-	
+	NavigationsBL naviObj;
 
 	@Given("^Open Browser and Go to portal$")
 	public void OpenBrowser() {
@@ -52,6 +52,13 @@ public class loginTest extends DriverClass {
 
 		}
 
+	}
+	
+	@And("^User should be navigated to each link.$")
+	public void Navigate() {
+		naviObj = loginBL.Redirect();
+		naviObj.NavigationCaller();
+		
 	}
 
 	@And("^Application should be closed$")

@@ -9,6 +9,7 @@ import utils.HelperMethods;
 
 public class LoginBL extends DriverClass{
 	LoginPL lp;
+	NavigationsBL naviObj = null;
 	public LoginBL() {
 		 lp = PageFactory.initElements(ldriver, LoginPL.class);
 	}
@@ -34,5 +35,11 @@ public class LoginBL extends DriverClass{
 		Thread.sleep(2000);
 		hm.HandleClickAction(lp.getTwoFASignIn(), ldriver);
 	}
+	
+	public NavigationsBL Redirect() {
+		return naviObj;
+	}
+	
+	
 
 }

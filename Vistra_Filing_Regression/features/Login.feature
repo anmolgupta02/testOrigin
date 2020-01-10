@@ -5,4 +5,6 @@ Feature: Login Test
     Given Open Browser and Go to portal
     When User submits valid "test1@liferay.com" and "test"
     Then user should be navigated to portal landing screen
+    And User should be navigated to each link.
     And Application should be closed
+    
