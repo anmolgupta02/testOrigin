@@ -5,8 +5,11 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import utils.ConfigReader;
 import utils.DriverClass;
 import utils.HelperMethods;
+
+import java.io.IOException;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -22,11 +25,13 @@ public class loginTest extends DriverClass {
 	HelperMethods hm;
 	LoginBL loginBL;
 	NavigationsBL naviObj;
+	ConfigReader conRed;
+	
 
 	@Given("^Open Browser and Go to portal$")
-	public void OpenBrowser() {
-
-		driver = startApplication(driver, "chrome", "http://ppd.myformations.vistra.com");
+	public void OpenBrowser()throws IOException {
+		conRed = new ConfigReader();
+		driver = startApplication(driver, conRed.getBrowser(), conRed.getURL());
 				
 	}
 
@@ -56,7 +61,7 @@ public class loginTest extends DriverClass {
 	
 	@And("^User should be navigated to each link.$")
 	public void Navigate() {
-		naviObj = loginBL.Redirect();
+		naviObj = loginBL.Redirect(); //Page Object Calling.
 		naviObj.NavigationCaller();
 		
 	}
